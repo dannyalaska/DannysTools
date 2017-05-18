@@ -23,7 +23,7 @@ def clean_up_markup(text):
     if extracted_table:
         text = tableReg.sub('', text)
     if extracted_line:
-        text = lineReg.sub('{code:java} ', text)
+        text = lineReg.sub('{code:sql} ', text)
     if extracted_end:
         text = endReg.sub('; {code}\n ', text)
     if extracted_empty:
@@ -32,3 +32,4 @@ def clean_up_markup(text):
     text = os.linesep.join([s for s in text.splitlines() if s])
 
     pyperclip.copy(text)
+
